@@ -1,0 +1,41 @@
+{% extends "blog/base.html" %}
+
+{% load static %}
+{% block body %}
+  
+<!--start side bar-->
+ 
+       
+       
+      <div class="border p-3 mb-3">
+        <img class="img-fluid rounded-circle border m-2"width="70px" height="70px" src="static/images/فهرس.png"
+        alt="صوره شخصيه">
+        <span class="text-secondary">نشر في {{post_detail.post_date|date:"d-m-Y"}}</span>
+        <h3><a class="text-dark" href="#">{{post_detail.title}}</a></h3>
+        <p>{{post_detail.content}}</p>
+      </div>
+      <h2>  {{comment.count}}التعليقات</h2>
+
+      {% if comment %}
+      {% for comment in comment %}
+      
+      <div>
+        <small>{{comment.name}}<br>{{comment.comment_date}}<br>{{comment.body}}</small>
+      </div>
+
+   {% endfor %}
+   {% else %}
+    <div>
+     <h4>لا يوجد تعليقات</h4>
+    </div>
+   {% endif %}
+       
+  <!-- end section-->
+
+  <!-- Footer -->
+
+  {% endblock body %}
+
+
+
+
